@@ -37,7 +37,7 @@ class ModController extends Controller
             $request->merge(['section_id' => null]);
         }
 
-        $request->validate($errors);
+        $request->validate($errors, ['section_id.required' => 'The section field is required.']);
 
         $mod = new Mod();
         $user = Auth::user();
