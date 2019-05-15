@@ -36,4 +36,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Used to keep track of users that upload mods to the database
+    public function mods(){
+        return $this->hasMany('App\Mod');
+    }
+
+    public function comments(){
+        return $this->hasMany('App\Comment');
+    }
 }

@@ -1,0 +1,247 @@
+.modImg {
+    width: 345px;
+    height: 235px;
+    padding-right: 4px;
+    float: left;
+}
+
+.modWrapper {
+    overflow: hidden;
+    width: 800px;
+    height: 235px;
+    border: inset tan 2px;
+    background-color: lightyellow;
+    color: black;
+    margin: auto;
+}
+
+.modDescription {
+    height: 82px;
+    position: relative;
+    top: 20px;
+}
+
+.modName {
+    font-weight: bold;
+    font-size: 18px;
+    top: 15px;
+    position: relative;
+}
+
+.modContent {
+    position: relative;
+    top: 20px;
+}
+
+/*--------------------------------------------------------*/
+
+#modImgSingle {
+    width: 800px;
+    height: 548px;
+    padding-bottom: 5px;
+}
+
+#modWrapperSingle {
+    width: 800px;
+    border: inset tan 2px;
+    margin: auto;
+    background-color: lightyellow;
+    color: black;
+    text-align: center;
+}
+
+#modNameSingle {
+    font-weight: bold;
+    font-size: 26px;
+}
+
+#modContentSingle {
+    padding: 4px;
+}
+
+#modDescriptionSingle {
+    padding: 4px;
+}
+
+#commentHeading {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.commentHeader {
+    width: 792px;
+    background-color: gray;
+    padding: 4px;
+}
+
+.commentWrapper {
+    width: 800px;
+    border-top: inset tan 2px;
+    background-color: #3a3a3a;
+    color: white;
+    text-align: left;
+}
+
+.commentContent {
+    padding: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.commenterName {
+    font-size: 18px;
+    font-weight: bold;
+    color: #761b18;
+/ / text-shadow: rgba(0, 0, 0, .8) 1 px 1 px 3 px;
+}
+
+.commentDelete {
+    width: 70px;
+}
+
+.commentDeleteForm {
+    padding: 4px;
+}
+
+/*--------------------------------------------------------*/
+
+#specHr {
+    position: relative;
+    top: 20px;
+}
+
+.edit {
+    display: inline-block;
+    padding-top: 3px;
+}
+
+#masterWrapper {
+    border: outset 2px tan;
+    background-color: black;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#navWrapper {
+    border-top: outset 2px tan;
+    border-bottom: outset 2px tan;
+    background-color: black;
+    text-align: center;
+    padding: 4px;
+}
+
+body {
+    background-image: url('../images/mainbg.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-color: black;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.alert {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#testAdd {
+    color: white;
+}
+
+#testUpdate {
+    color: white;
+}
+
+a {
+    color: #761b18;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #c12b26
+}
+
+.navLink {
+    color: lightgray;
+}
+
+.navLink:hover {
+    color: white;
+}
+
+#contentWrapper {
+
+}
+
+#confirm {
+    text-align: center;
+}
+
+#confirmButtonYes {
+    width: 150px;
+    background-color: lightcoral;
+}
+
+#confirmButtonNo {
+    width: 150px;
+    background-color: lightgreen;
+}
+
+.showButton {
+    width: 150px;
+}
+
+.mainTitle {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    color: #99acff;
+    text-shadow: rgba(0, 0, 0, .8) 3px 3px 10px;
+}
+
+#banner {
+    text-align: center;
+    background-image: radial-gradient(rgba(153, 172, 255, .8), black);
+}
+
+#bannerImage {
+    height: 120px;
+    width: 60px;
+    padding-top: 6px;
+}
+
+.showAlert {
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.genericWrapper {
+    text-align: center;
+    color: black;
+    width: 400px;
+    border: inset tan 2px;
+    background-color: lightyellow;
+    margin: auto;
+}
+
+#login {
+    color: lightgray;
+    padding: 3px;
+}
+
+#login:hover {
+    color: white;
+}
+
+.genericAlert {
+    color: red;
+}
+
+
+
+
