@@ -3,8 +3,6 @@
 + Production URL: http://p4.cuneocourse.me
 
 ## Feature summary
-*Outline a summary of features that your application has. The following details are from a hypothetical project called "Movie Tracker". Note that it is similar to Foobooks, yet it has its own unique features. Delete this example and replace with your own feature summary*
-
 + Visitors can register/log in
 + Users can add/edit/delete their own mods
 + Users can search for mods via their category, or section, that they are created with
@@ -18,9 +16,8 @@
 
   
 ## Database summary
-*Describe the tables and relationships used in your database. Delete the examples below and replace with your own info.*
-
 + My application has 4 tables in total (`users`, `mods`, `sections`, `comments`)
+
 + There's a one-to-many relationship between `sections` and `mods`
 + There's a one-to-many relationship between `mods` and `comments` *May have misnamed this migration*
 + There's a one-to-many relationship between `users` and `mods`
