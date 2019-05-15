@@ -36,3 +36,4 @@ In my `Exceptions/Handler.php`, I used code provided from https://stackoverflow.
 + I could have expanded this mod by
   + filtering the mods on the home page in some way so they all aren't just dumped there
   + giving each user their own personal page to view their mods and comments
+  + making validation slightly more robust
