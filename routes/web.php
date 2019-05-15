@@ -22,7 +22,7 @@ Route::get('/{id}', 'ModController@showModsSingle');
 Route::get('/{id}/search', 'ModController@showModsSection');
 Route::get('/{id}/edit', 'ModController@edit');
 
-Route::post('/{id}/delconfirm', 'Modcontroller@delConfirm');
+Route::post('/{id}/delconfirm', 'ModController@delConfirm');
 Route::post('/store', 'ModController@store');
 Route::post('/{id}/comment', 'ModController@comment');
 Route::put('/{id}/update', 'ModController@update');
