@@ -1,34 +1,35 @@
 # Project 4
-+ By: *your first and last name*
-+ Production URL: <http://p4.yourdomain.com>
++ By: Michael Cuneo
++ Production URL: http://p4.cuneocourse.me
 
 ## Feature summary
 *Outline a summary of features that your application has. The following details are from a hypothetical project called "Movie Tracker". Note that it is similar to Foobooks, yet it has its own unique features. Delete this example and replace with your own feature summary*
 
 + Visitors can register/log in
-+ Users can add/update/delete movies in their collection (title, release date, director, writer, summary, category)
-+ There's a file uploader that's used to upload post images for each movie
-+ User's can toggle whether movies in their collection are public or private
-+ Each user has a public profile page which presents a short bio about their movie tastes, as well as a list of public movies in their collection. 
-+ Each user has their own account page where they can edit their bio, email, password
-+ Users can clone movies from another user's public collection into their collection
++ Users can add/edit/delete their own mods
++ Users can search for mods via their category, or section, that they are created with
++ Users can search for mod names via a search bar
++ Each user can comment when logged in on each mod, and also delete them
 + The home page features
-  + a stream of recently added public movies
-  + a list of categories, with a link to each category that shows a page of movies (with links) within that category
+  + a list of all uploaded mods
+  + a list of sections, with a link to each section that shows a page of mods within that section
 
   
 ## Database summary
 *Describe the tables and relationships used in your database. Delete the examples below and replace with your own info.*
 
-+ My application has 3 tables in total (`users`, `movies`, `categories`)
-+ There's a many-to-many relationship between `movies` and `categories`
-+ There's a one-to-many relationship between `movies` and `users`
++ My application has 4 tables in total (`users`, `mods`, `sections`, `comments`)
++ There's a one-to-many relationship between `sections` and `mods`
++ There's a one-to-many relationship between `mods` and `comments`
++ There's a one-to-many relationship between `users` and `mods`
++ There's a one-to-many relationship between `users` and `comments`
 
 ## Outside resources
-*Your list of outside resources go here*
+In my *Exceptions/Handler.php*, I used code provided from https://stackoverflow.com/questions/30276325/laravel-5-how-do-i-handle-methodnotallowedhttpexception to help set up a redirect to home when a MethodNotAllowedHTTPException is thrown
 
 ## Code style divergences
-*List any divergences from PSR-1/PSR-2 and course guidelines on code style*
++ Made use of divs and spans
++ The *null* value is capitalized everywhere
 
 ## Notes for instructor
-*Any notes for me to refer to while grading; if none, omit this section*
+While in the authentication notes, you did offer a way to allow all views to have the *$user* variable populated with the logged in user's info, I found that when a view was yielded to the master view, it did not inherit this *$user* variable from the master view. In my controllers I had to return *$user* explicitly to get the data I needed to work with.
