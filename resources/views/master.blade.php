@@ -1,5 +1,5 @@
 <?php
-//Using this code was the easiest way to guarantee the navigation loading every time
+//Using this code was the easiest way to guarantee the section navigation loading every time
 use App\Section;
 
 $sections = Section::get();
@@ -48,7 +48,7 @@ $user = request()->user();
 
         @if(isset($user))
             <form method='GET' action='/add'>
-                <input class='showButton' type='submit' value='Add Mod'>
+                <input class='showButton' type='submit' value='Create Mod'>
             </form>
             <br>
         @endif
@@ -69,16 +69,23 @@ $user = request()->user();
     </div>
 
     <div id='contentWrapper'>
+        <p id='aboutWrapper'>
+            This website is designed to be a repository of mods for the Elder Scrolls V: Skyrim, developed by Bethesda Softworks. Here, users can add mods that they think are really good but               are, unfortunately, buried underneath thousands of other mods on the <a href='https://www.nexusmods.com/skyrim/'>Skyrim Mods Nexus</a>, or other mod websites.
+        </p>
+
         @if(session('alert'))
-            <br>
+            <hr>
             <div class='alert'>{{session('alert')}}</div>
+            <hr>
+            <br>
         @endif
 
         @if(isset($alert))
-            <br>
+            <hr>
             <div class='alert'>{{$alert}}</div>
+            <hr>
+            <br>
         @endif
-        <br>
         @yield('content')
     </div>
 

@@ -29,7 +29,7 @@ class ConnectUsersAndMods extends Migration
     {
         Schema::table('mods', function (Blueprint $table) {
             # combine tablename + fk field name + the word "foreign"
-            $table->dropForeign('user_section_id_foreign');
+            $table->dropForeign('mods_user_id_foreign');
 
             $table->dropColumn('user_id');
         });

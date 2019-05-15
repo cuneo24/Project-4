@@ -141,7 +141,7 @@ body {
 }
 
 .alert {
-    color: white;
+    color: #99acff;
     text-align: center;
     font-size: 20px;
     font-weight: bold;
@@ -246,6 +246,15 @@ a:hover {
     font-weight: bold;
     font-size: 26px;
     padding: 8px;
+}
+
+#sectionSelect {
+    width: 172px;
+}
+
+#aboutWrapper {
+    padding: 10px;
+    text-align: center;
 }
 
 

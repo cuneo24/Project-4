@@ -24,7 +24,7 @@ class ModController extends Controller
     //----------------------------------------------------------------------------------
     public function store(Request $request)
     {
-        $request->validate([
+        $errors = ([
             'name' => 'required',
             'description' => 'required',
             'picture_url' => 'required',
@@ -32,6 +32,12 @@ class ModController extends Controller
             'mod_author' => 'required',
             'section_id' => 'required'
         ]);
+
+        if ($request->input('section_id') == 'none') {
+            $request->merge(['section_id' => null]);
+        }
+
+        $request->validate($errors);
 
         $mod = new Mod();
         $user = Auth::user();
@@ -77,7 +83,7 @@ class ModController extends Controller
         $user = Auth::user();
 
         if (!$mod) {
-            return redirect('/')->with(['alert' => 'Mod not found']);
+            return redirect('/')->with(['alert' => 'Mod not found.']);
         } else if (isset($user) && $mod->user_id == $user->id) {
             return view('update')->with(['mod' => $mod]);
         } else {
@@ -117,6 +123,7 @@ class ModController extends Controller
     {
         $search = $request->get('searchTerm', '');
         $mods = Mod::where('name', 'LIKE', '%' . $search . '%')->get();
+        $user = Auth::user();
         if ($mods->count() == 0) {
             $alert = 'No mods found containing "' . $search . '"';
 
@@ -131,9 +138,9 @@ class ModController extends Controller
             if ($search == null) {
                 return redirect('/');
             } else {
-                $alert = 'Showing ' . $mods->count() . ' ' . $plural . ' found containing "' . $search . '"';
+                $alert = 'Showing ' . $mods->count() . ' ' . $plural . ' found containing "' . $search . '".';
 
-                return view('index')->with(['alert' => $alert, 'mods' => $mods, 'searchTerm' => $search]);
+                return view('index')->with(['alert' => $alert, 'mods' => $mods, 'searchTerm' => $search, 'user' => $user]);
             }
         }
     }
@@ -142,10 +149,9 @@ class ModController extends Controller
     public function showMods()
     {
         $mods = Mod::get();
-        $sections = Section::get();
         $user = Auth::user();
 
-        return view('index')->with(['mods' => $mods, 'sections' => $sections, 'user' => $user]);
+        return view('index')->with(['mods' => $mods, 'user' => $user]);
     }
 
     //----------------------------------------------------------------------------------
@@ -154,7 +160,7 @@ class ModController extends Controller
     {
         $mod = Mod::find($id);
         if (!$mod) {
-            return redirect('/')->with(['alert' => 'Mod not found']);
+            return redirect('/')->with(['alert' => 'Mod not found.']);
         } else {
             $comments = Comment::where('mod_id', '=', $id)->get();
             $user = Auth::user();
@@ -171,9 +177,20 @@ class ModController extends Controller
         $section = Section::find($id);
         $user = Auth::user();
 
-        $alert = 'Showing ' . $mods->count() . ' mods under section ' . '"' . $section->name . '"';
+        if ($mods->count() == 0) {
+            $alert = 'No mods found under section "' . $section->name . '".';
 
-        return view('index')->with(['mods' => $mods, 'alert' => $alert, 'user' => $user]);
+            return view('index')->with(['alert' => $alert, 'mods' => $mods]);
+        } else {
+            if ($mods->count() > 1) {
+                $plural = 'mods';
+            } else {
+                $plural = 'mod';
+            }
+            $alert = 'Showing ' . $mods->count() . ' ' . $plural . ' under section "' . $section->name . '".';
+
+            return view('index')->with(['mods' => $mods, 'alert' => $alert, 'user' => $user]);
+        }
     }
 
     //----------------------------------------------------------------------------------

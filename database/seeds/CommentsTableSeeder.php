@@ -12,8 +12,23 @@ class CommentsTableSeeder extends Seeder
     public function run()
     {
         $comments = [
-            ['This is neat!', '1', '3'],
-            ['This is dumb!', '1', '3']
+            ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A diam maecenas sed enim ut sem.', '1', '1'],
+            ['Mi eget mauris pharetra et. A diam consectetur adipiscing elit, maecenas sed enim ut sem.', '1', '2'],
+
+            ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A diam maecenas sed enim ut sem.', '2', '1'],
+            ['Mi eget mauris pharetra et. A diam consectetur adipiscing elit, maecenas sed enim ut sem.', '2', '2'],
+
+            ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A diam maecenas sed enim ut sem.', '3', '1'],
+            ['Mi eget mauris pharetra et. A diam consectetur adipiscing elit, maecenas sed enim ut sem.', '3', '2'],
+
+            ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A diam maecenas sed enim ut sem.', '4', '1'],
+            ['Mi eget mauris pharetra et. A diam consectetur adipiscing elit, maecenas sed enim ut sem.', '4', '2'],
+
+            ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A diam maecenas sed enim ut sem.', '5', '1'],
+            ['Mi eget mauris pharetra et. A diam consectetur adipiscing elit, maecenas sed enim ut sem. ', '5', '2'],
+
+            ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A diam maecenas sed enim ut sem.', '6', '1'],
+            ['Mi eget mauris pharetra et. A diam consectetur adipiscing elit, maecenas sed enim ut sem.', '6', '2']
         ];
 
         foreach ($comments as $commentData) {
