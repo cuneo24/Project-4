@@ -25,6 +25,7 @@ $user = request()->user();
         </div>
     </a>
 
+    <!-- displays section navigation -->
     <div id='navWrapper'>
         <span id='sectionName'>Sections</span><br>
 
@@ -46,6 +47,7 @@ $user = request()->user();
         </form>
         <br>
 
+    <!-- if user is logged in, display button to add a mod -->
         @if(isset($user))
             <form method='GET' action='/add'>
                 <input class='showButton' type='submit' value='Create Mod'>
@@ -53,6 +55,7 @@ $user = request()->user();
             <br>
         @endif
 
+    <!-- changes the login/logout link depending whether user is logged in or not -->
         @if(!isset($user))
             <form method='GET' id='login' action='/login'>
                 <a id='login' href='/login'>Login</a>
@@ -73,6 +76,7 @@ $user = request()->user();
             This website is designed to be a repository of mods for the Elder Scrolls V: Skyrim, developed by Bethesda Softworks. Here, users can add mods that they think are really good but               are, unfortunately, buried underneath thousands of other mods on the <a href='https://www.nexusmods.com/skyrim/'>Skyrim Mods Nexus</a>, or other mod websites.
         </p>
 
+    <!-- displays alert depending on whether there is a redirect or a view returned -->
         @if(session('alert'))
             <hr>
             <div class='alert'>{{session('alert')}}</div>

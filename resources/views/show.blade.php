@@ -18,6 +18,7 @@
             Contributed by <em>{{$mod->user->name}}</em><br>
             <a href='{{$mod->mod_url}}' target="_blank">Download from Skyrim Nexus</a><br><br>
 
+        <!-- if user is logged in and the owner of the mod, show buttons to edit or delete the mod -->
             @if(isset($user) && $user->name == $mod->user->name)
                 <form class='edit' method='GET' action='/{{$mod->id}}/edit'>
                     <input class='showButton' type='submit' value='Edit'>
@@ -36,6 +37,7 @@
             @include('_comment')
         @endforeach
 
+    <!-- if user is logged in, show comment form, else show a link to login page -->
         @if(isset($user))
             <br>
             <form method='POST' action='/{{$mod->id}}/comment'>

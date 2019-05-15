@@ -11,6 +11,7 @@ use App\Section;
 class ModController extends Controller
 {
     //----------------------------------------------------------------------------------
+    //Makes sure user is logged in, and if true, returns the add form to add a mod, else return home
     public function add()
     {
         $user = Auth::user();
@@ -22,6 +23,7 @@ class ModController extends Controller
     }
 
     //----------------------------------------------------------------------------------
+    //Validates and stores the mod created by the add form, and returns to home
     public function store(Request $request)
     {
         $errors = ([
@@ -57,6 +59,7 @@ class ModController extends Controller
     }
 
     //----------------------------------------------------------------------------------
+    //Deletes selected mod, and returns home
     public function delete($id)
     {
         $mod = Mod::find($id);
@@ -68,6 +71,7 @@ class ModController extends Controller
         return redirect('/')->with(['alert' => $alert]);
     }
 
+    //Returns form that confirms whether user wants to delete selected mod or not
     public function delConfirm($id)
     {
         $mod = Mod::find($id);
@@ -77,6 +81,7 @@ class ModController extends Controller
     }
 
     //----------------------------------------------------------------------------------
+    //Makes sure user is logged in and is the uploader of the selected mod, and if true, returns the form to edit a mod, else returns home
     public function edit($id)
     {
         $mod = Mod::find($id);
@@ -91,7 +96,7 @@ class ModController extends Controller
         }
     }
 
-    //----------------------------------------------------------------------------------
+    //Validates and saves the mod updates, then returns home
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -119,6 +124,7 @@ class ModController extends Controller
     }
 
     //----------------------------------------------------------------------------------
+    //Shows all mods with a name similar to search term - extra code to handle plural (mod/mods)
     public function search(Request $request)
     {
         $search = $request->get('searchTerm', '');
@@ -146,6 +152,7 @@ class ModController extends Controller
     }
 
     //----------------------------------------------------------------------------------
+    //Shows all mods
     public function showMods()
     {
         $mods = Mod::get();
@@ -155,7 +162,7 @@ class ModController extends Controller
     }
 
     //----------------------------------------------------------------------------------
-
+    //Shows only a single selected mod
     public function showModsSingle($id)
     {
         $mod = Mod::find($id);
@@ -170,7 +177,7 @@ class ModController extends Controller
     }
 
     //----------------------------------------------------------------------------------
-
+    //Shows only mods under a selected section/category
     public function showModsSection($id)
     {
         $mods = Mod::where('section_id', '=', $id)->get();
@@ -194,7 +201,7 @@ class ModController extends Controller
     }
 
     //----------------------------------------------------------------------------------
-
+    //Stores the new user comment and redirects back to selected mod page
     public function comment(Request $request, $id)
     {
         $mod = Mod::find($id);
@@ -213,7 +220,7 @@ class ModController extends Controller
     }
 
     //----------------------------------------------------------------------------------
-
+    //Delete user comment then redirect back
     public function deleteComment($id)
     {
         $comment = Comment::find($id);

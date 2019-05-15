@@ -5,6 +5,8 @@
     <div class='commentContent'>
         {{$comment->comment}}
     </div>
+
+    <!-- if user is logged in and they are the owner of the mod comment, display a button to delete the comment -->
     @if(isset($user) && $user->id == $comment->user_id)
         <form class='commentDeleteForm' method='POST' action='/{{$comment->id}}/deletecomment'>
             {{ csrf_field() }}
