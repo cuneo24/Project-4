@@ -12,22 +12,27 @@
             {{method_field('PUT')}}
             <label>
                 Name<br><input type='text' name='name' value='@if(old('name')){{old('name')}}@else{{$mod->name}}@endif'>
+                @include('error-field', ['fieldName' => 'name'])
             </label>
             <br><br>
             <label>
                 Description<br><textarea rows="8" cols="50" name='description'>@if(old('description')){{old('description')}}@else{{$mod->description}}@endif</textarea>
+                @include('error-field', ['fieldName' => 'description'])
             </label>
             <br><br>
             <label>
                 Picture URL<br><input type='text' name='picture_url' value='@if(old('picture_url')){{old('picture_url')}}@else{{$mod->picture_url}}@endif'>
+                @include('error-field', ['fieldName' => 'picture_url'])
             </label>
             <br><br>
             <label>
                 Mod URL<br><input type='text' name='mod_url' value='@if(old('mod_url')){{old('mod_url')}}@else{{$mod->mod_url}}@endif'>
+                @include('error-field', ['fieldName' => 'mod_url'])
             </label>
             <br><br>
             <label>
                 Mod Author<br><input type='text' name='mod_author' value='@if(old('mod_author')){{old('mod_author')}}@else{{$mod->mod_author}}@endif'>
+                @include('error-field', ['fieldName' => 'mod_author'])
             </label>
             <br><br>
             <label>
@@ -56,15 +61,6 @@
             <br><br>
             <input class='showButton' type='submit' value='Update'>
             <br><br>
-
-            @if ($errors->any())
-                <div class="genericAlert">
-                    @foreach ($errors->all() as $error)
-                        {{ $error }} <br>
-                    @endforeach
-                </div>
-                <br>
-            @endif
 
         </form>
     </div>

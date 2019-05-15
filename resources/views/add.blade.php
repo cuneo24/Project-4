@@ -7,26 +7,32 @@
 @section('content')
     <div class='genericWrapper'>
         <h1>Add New Mod</h1>
+
         <form method='POST' action='/store'>
             {{ csrf_field() }}
             <label>
                 Name<br><input type='text' name='name' value='{{old('name')}}'>
+                @include('error-field', ['fieldName' => 'name'])
             </label>
             <br><br>
             <label>
                 Description<br><textarea rows="8" cols="50" name='description'>{{old('description')}}</textarea>
+                @include('error-field', ['fieldName' => 'description'])
             </label>
             <br><br>
             <label>
                 Picture URL<br><input type='text' name='picture_url' value='{{old('picture_url')}}'>
+                @include('error-field', ['fieldName' => 'picture_url'])
             </label>
             <br><br>
             <label>
                 Mod URL<br><input type='text' name='mod_url' value='{{old('mod_url')}}'>
+                @include('error-field', ['fieldName' => 'mod_url'])
             </label>
             <br><br>
             <label>
                 Mod Author<br><input type='text' name='mod_author' value='{{old('mod_author')}}'>
+                @include('error-field', ['fieldName' => 'mod_author'])
             </label>
             <br><br>
             <label>
@@ -52,19 +58,11 @@
                     <option value='17' @if(old('section_id') == '17'){{'selected'}}@endif>Towns/Cities</option>
                     <option value='18' @if(old('section_id') == '18'){{'selected'}}@endif>Weapons</option>
                 </select>
+                @include('error-field', ['fieldName' => 'section_id'])
             </label>
             <br><br>
             <input class='showButton' type='submit' value='Create'>
             <br><br>
-
-            @if ($errors->any())
-                <div class="genericAlert">
-                    @foreach ($errors->all() as $error)
-                        {{ $error }} <br>
-                    @endforeach
-                </div>
-                <br>
-            @endif
 
         </form>
     </div>
