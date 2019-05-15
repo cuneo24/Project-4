@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -46,15 +47,12 @@ class Handler extends ExceptionHandler
      */
 
      //code found @ https://tutsforweb.com/how-to-create-custom-404-page-laravel/
-    public function render($request, Exception $exception)
+    public function render($request, \Exception $e)
     {
-        if ($this->isHttpException($exception)) {
-            if ($exception->getStatusCode() == 404) {
-                $alert = 'Page not found';
-                return response()->view('index')->with(['alert' => $alert]);
-            }
+        if ($e instanceof MethodNotAllowedHttpException) {
+            return redirect('/');
         }
 
-        return parent::render($request, $exception);
+        return parent::render($request, $e);
     }
 }
