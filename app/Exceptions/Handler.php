@@ -46,7 +46,7 @@ class Handler extends ExceptionHandler
      * @return \Illuminate\Http\Response
      */
 
-     //code found @ https://tutsforweb.com/how-to-create-custom-404-page-laravel/
+     //code found @ https://stackoverflow.com/questions/30276325/laravel-5-how-do-i-handle-methodnotallowedhttpexception
     public function render($request, \Exception $e)
     {
         if ($e instanceof MethodNotAllowedHttpException) {
