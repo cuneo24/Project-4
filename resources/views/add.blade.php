@@ -4,35 +4,47 @@
     Create Mod
 @endsection
 
-<form id='testAdd' method='POST' action='/store'>
-    {{ csrf_field() }}
-    <label>
-        <input type='text' name='name' value='@if(isset($name)){{$name}}@endif'>Name
-    </label>
-    <label>
-        <input type='textarea' name='description' value='@if(isset($description)){{$description}}@endif'>Description
-    </label>
-    <label>
-        <input type='text' name='picture_url' value='@if(isset($picture_url)){{$picture_url}}@endif'>Picture URL
-    </label>
-    <label>
-        <input type='text' name='mod_url' value='@if(isset($mod_url)){{$mod_url}}@endif'>Mod URL
-    </label>
-    <label>
-        <input type='text' name='mod_author' value='@if(isset($mod_author)){{$mod_author}}@endif'>Mod Author
-    </label>
-    <label>
-        <input type='text' name='section_id' value='1'>Mod Section
-    </label>
-    <input type='submit' value='Create'>
+@section('content')
+    <div class='genericWrapper'>
+        <h1>Add New Mod</h1>
+        <form method='POST' action='/store'>
+            {{ csrf_field() }}
+            <label>
+                Name<br><input type='text' name='name' value='{{old('name')}}'>
+            </label>
+            <br><br>
+            <label>
+                Description<br><textarea rows="8" cols="50" name='description'>{{old('description')}}</textarea>
+            </label>
+            <br><br>
+            <label>
+                Picture URL<br><input type='text' name='picture_url' value='{{old('picture_url')}}'>
+            </label>
+            <br><br>
+            <label>
+                Mod URL<br><input type='text' name='mod_url' value='{{old('mod_url')}}'>
+            </label>
+            <br><br>
+            <label>
+                Mod Author<br><input type='text' name='mod_author' value='{{old('mod_author')}}'>
+            </label>
+            <br><br>
+            <label>
+                Mod Section<br><input type='text' name='section_id' value='1'>
+            </label>
+            <br><br>
+            <input class='showButton' type='submit' value='Create'>
+            <br><br>
 
-    @if ($errors->any())
-        <div class="genericAlert">
-            @foreach ($errors->all() as $error)
-                {{ $error }} <br>
-            @endforeach
-        </div>
-        <br>
-    @endif
+            @if ($errors->any())
+                <div class="genericAlert">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }} <br>
+                    @endforeach
+                </div>
+                <br>
+            @endif
 
-</form>
+        </form>
+    </div>
+@endsection

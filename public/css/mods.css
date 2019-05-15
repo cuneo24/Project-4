@@ -242,6 +242,10 @@ a:hover {
     color: red;
 }
 
-
+#sectionName {
+    font-weight: bold;
+    font-size: 26px;
+    padding: 8px;
+}
 
 

@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     <div class='genericWrapper'>
         <h1>Login</h1>
 
@@ -13,7 +12,6 @@
         <br><br>
 
         <form method='POST' action='{{ route('login') }}'>
-
             {{ csrf_field() }}
 
             <label for='email'>E-Mail Address</label><br>

@@ -26,6 +26,8 @@ $user = request()->user();
     </a>
 
     <div id='navWrapper'>
+        <span id='sectionName'>Sections</span><br>
+
         @foreach($sections as $section)
             @if($lastSectionId == $section->id)
                 <a class='navLink' href='/{{$section->id . '/search'}}'>{{$section->name}}</a>
@@ -33,7 +35,9 @@ $user = request()->user();
                 <a class='navLink' href='/{{$section->id . '/search'}}'>{{$section->name}}</a>&nbsp;&bull;&nbsp;
             @endif
         @endforeach
+
         <br><br>
+
         <form method='GET' action='/search'>
             <label>
                 <input type='text' name='searchTerm' value='@if(isset($searchTerm)){{$searchTerm}}@endif'>
@@ -61,6 +65,7 @@ $user = request()->user();
                 <a id='login' href='#' onClick='document.getElementById("logout").submit();'>Logout {{$user->name}}</a>
             </form>
         @endif
+
     </div>
 
     <div id='contentWrapper'>
@@ -76,7 +81,9 @@ $user = request()->user();
         <br>
         @yield('content')
     </div>
+
     <br>
+
 </div>
 </body>
 </html>
