@@ -29,6 +29,7 @@ In my `Exceptions/Handler.php`, I used code provided from https://stackoverflow.
 ## Code style divergences
 + Made use of divs and spans
 + The `null` value is capitalized everywhere
++ Used minimal necessary PHP code in master blade to populate section navigation links on every page load
 
 ## Notes for instructor
 While in the authentication notes, you did offer a way to allow all views to have the `$user` variable populated with the logged in user's info, I found that when a view was yielded to the master view, it did not inherit this `$user` variable from the master view. In my controllers I had to return `$user` explicitly to get the data I needed to work with.
